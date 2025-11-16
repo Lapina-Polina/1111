@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -6,7 +7,6 @@ SECRET_KEY = "django-insecure-qtbo%4@pcll9%m0n6*if!4*mq$v)_c^)yaoz@t3uv&vzc=y44t
 
 DEBUG = True
 
-# добавь localhost и 127.0.0.1, иначе runserver может ругаться
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
@@ -16,11 +16,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # твои приложения
     'login',
     'other',
     'store',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -38,7 +37,6 @@ ROOT_URLCONF = "project.urls"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # добавь корневую папку шаблонов, если ты их хочешь хранить глобально
         'DIRS': [
             BASE_DIR / 'templates',
         ],
@@ -70,21 +68,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-LANGUAGE_CODE = "ru-ru"  # можно поменять на русский, если хочешь
+LANGUAGE_CODE = "ru-ru"
 TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 USE_TZ = True
 
-# --- Static & Media ---
-
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'other' / 'static',
-    BASE_DIR / 'login' / 'static',
-    BASE_DIR / 'store' / 'static',
-]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

@@ -12,7 +12,8 @@ urlpatterns = [
     path('hello/', HelloWorldView.as_view(), name='hello'),
     path('random/', RandomNumberView.as_view(), name='random'),
     path('date/', CurrentDateView.as_view(), name='date'),
-    path('store/', include(('store.urls', 'store'), namespace='store'))
+    path('store/', include(('store.urls', 'store'), namespace='store')),
+    path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
 ]
 
 if settings.DEBUG:
