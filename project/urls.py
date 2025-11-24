@@ -1,19 +1,19 @@
 from django.contrib import admin
 from django.urls import path, include
-from login.views import LoginView
-from other.views import IndexView, HelloWorldView, RandomNumberView, CurrentDateView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LoginView.as_view(), name='login'),
-    path('other/', IndexView.as_view(), name='index'),
-    path('hello/', HelloWorldView.as_view(), name='hello'),
-    path('random/', RandomNumberView.as_view(), name='random'),
-    path('date/', CurrentDateView.as_view(), name='date'),
-    path('store/', include(('store.urls', 'store'), namespace='store')),
-    path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
+    path('other/', include('apps.common.urls')),
+    path('other/', include('apps.test_app.urls')),
+    path('other/', include('apps.login.urls')),
+    path('other/cart/', include('apps.cart.urls')),
+    path('', include('apps.home.urls', namespace='home')),
+    path('shop/', include('apps.shop.urls')),
+    path('cart_shop/', include('apps.cart_shop.urls')),
+    path('checkout/', include('apps.checkout.urls')),
+    path('blog/', include('apps.blog.urls')),
 ]
 
 if settings.DEBUG:

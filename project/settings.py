@@ -16,10 +16,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login',
-    'other',
-    'store',
-    'cart',
+    'apps.cart',
+    'apps.login',
+    'apps.common',
+    'apps.test_app',
+    'apps.blog',
+    'apps.home',
+    'apps.shop',
+    'apps.checkout',
+    'apps.cart_shop',
+    'apps.user',
 ]
 
 MIDDLEWARE = [
@@ -38,7 +44,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',
+            BASE_DIR / 'apps/common/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -47,6 +53,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.cart_shop.views.cart_items_count',
             ],
         },
     },
@@ -76,7 +83,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
