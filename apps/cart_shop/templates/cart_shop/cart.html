@@ -33,7 +33,7 @@
 							  <tr class="text-center">
 								  <!-- Кнопка удаления -->
 								  <td class="product-remove">
-									  <a href="{% url 'cart:remove_item' item.id %}"><span class="ion-ios-close"></span></a>
+									  <a href="{% url 'cart_shop:delete' item.id %}"><span class="ion-ios-close"></span></a>
 								  </td>
 								  <!-- Изображение продукта -->
 								  <td class="image-prod">
@@ -50,7 +50,7 @@
 								  <td class="quantity">
 									  <div class="input-group mb-3">
 										  <input type="text" name="quantity" class="quantity form-control input-number" value="{{ item.quantity }}" min="1" max="100">
-									  </div>
+										  <div class="input-group-append"></div>
 								  </td>
 								  <!-- Общая цена позиции -->
 								  <td class="total">${{ item.total_price }}</td>

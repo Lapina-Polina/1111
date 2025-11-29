@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'apps.checkout',
     'apps.cart_shop',
     'apps.user',
+    'apps.auth_shop',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -53,7 +55,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apps.cart_shop.views.cart_items_count',
             ],
         },
     },
