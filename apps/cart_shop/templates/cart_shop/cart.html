@@ -1,4 +1,4 @@
-{% extends "store/base.html" %}
+{% extends "home/base.html" %}
 {% load static %}
   {% block content %}
     <div class="hero-wrap hero-bread" style="background-image: url({% static 'shop/images/bg_1.jpg'%});">
@@ -33,7 +33,7 @@
 							  <tr class="text-center">
 								  <!-- Кнопка удаления -->
 								  <td class="product-remove">
-									  <a href="{% url 'cart_shop:delete' item.id %}"><span class="ion-ios-close"></span></a>
+									  <a href="{% url 'cart_shop:delete' item.cart_item_id %}"><span class="ion-ios-close"></span></a>
 								  </td>
 								  <!-- Изображение продукта -->
 								  <td class="image-prod">

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from apps.cart_shop.models import Product
-from apps.cart_shop.views import fill_cart_in_session, cart_items_count
+from apps.cart_shop.views import cart_items_count, fill_cart_in_session
 
 
 class ShopView(View):

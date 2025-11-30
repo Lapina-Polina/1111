@@ -11,6 +11,7 @@ urlpatterns = [
     path('other/', include('apps.login.urls')),
     path('other/cart/', include('apps.cart.urls')),
     path('', include('apps.home.urls', namespace='home')),
+    path('user/', include('apps.auth_shop.urls', namespace='auth_shop')),
     path('shop/', include('apps.shop.urls')),
     path('cart/', include('apps.cart_shop.urls')),
     path('checkout/', include('apps.checkout.urls')),
